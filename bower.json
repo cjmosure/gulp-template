@@ -1,0 +1,17 @@
+{
+  "name": "gulptemplate",
+  "version": "1.0.0",
+  "authors": [
+    "God <god@earth.com>"
+  ],
+  "description": "A gulp template",
+  "main": "index.html",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "angular": "~1.4.7"
+  }
+}
