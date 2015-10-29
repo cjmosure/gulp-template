@@ -4,12 +4,13 @@ var less = require('gulp-less');
 var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
 var autoprefixer = require('gulp-autoprefixer');
-var minifycss = require('gulp-minify-css');
+var minifyCss = require('gulp-minify-css');
 var concatCss = require('gulp-concat-css');
 var concat = require('gulp-concat');
 var rename = require('gulp-rename');
 var notify = require('gulp-notify');
 var del = require('del');
+var gulpFilter = require('gulp-filter');
 
 var jsFiles = [
   'assets/vendor/jquery/dist/jquery.js',
@@ -27,12 +28,14 @@ gulp.task('scripts', function() {
 });
 
 gulp.task('styles', function() {
+  var filter = gulpFilter(['*.css', '!*.map']);
   return gulp.src('assets/sass/app.scss')
     .pipe(plumber())
   	.pipe(sourcemaps.init())
       .pipe(sass({ style: 'expanded' }))
+      .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
+      .pipe(minifyCss())
     .pipe(sourcemaps.write())
-    .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
     .pipe(gulp.dest('dist'))
     .pipe(notify({ message: 'Styles Compiled' }));
 });
