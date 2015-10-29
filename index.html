@@ -4,17 +4,11 @@
 	<title>Gulp Template</title>
 	<link rel="stylesheet" type="text/css" href="dist/app.css">
 </head>
-<body>
+<body ng-app="gulpTemplate">
 
-<div class="container">
-	<div class="row">
-		<div class="col-md-12">
-			<h1>Gulp Template</h1>
-			<p class="lead">Looks like it's working!</p>
-		</div>
-	</div>
-</div>
+<div ng-include src="'bootstrap-test.html'"></div>
 
-<script type="text/javascript" src="dist/app.js"></script>
+<script type="text/javascript" src="dist/main.js"></script>
+<script type="text/javascript" src="app/app.js"></script>
 </body>
 </html>

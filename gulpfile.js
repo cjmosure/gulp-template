@@ -1,6 +1,5 @@
 var gulp = require('gulp');
 var plumber = require('gulp-plumber');
-var less = require('gulp-less');
 var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
 var autoprefixer = require('gulp-autoprefixer');
@@ -14,7 +13,8 @@ var gulpFilter = require('gulp-filter');
 
 var jsFiles = [
   'assets/vendor/jquery/dist/jquery.js',
-  'assets/vendor/angular/angular.js'
+  'assets/vendor/angular/angular.js',
+  'assets/vendor/bootstrap-sass/assets/javascripts/bootstrap.js'
 ];
 
 gulp.task('clean', function(cb) {
@@ -23,7 +23,7 @@ gulp.task('clean', function(cb) {
 
 gulp.task('scripts', function() {
   return gulp.src(jsFiles)
-    .pipe(concat('app.js'))
+    .pipe(concat('main.js'))
     .pipe(gulp.dest('dist'));
 });
 
@@ -37,7 +37,7 @@ gulp.task('styles', function() {
       .pipe(minifyCss())
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('dist'))
-    .pipe(notify({ message: 'Styles Compiled' }));
+    .pipe(notify({ message: 'SASS Compiled' }));
 });
 
 gulp.task('watch', function() {

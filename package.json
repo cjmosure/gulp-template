@@ -18,7 +18,6 @@
     "gulp-autoprefixer": "^3.1.0",
     "gulp-concat": "^2.5.2",
     "gulp-concat-css": "^2.2.0",
-    "gulp-less": "^3.0.3",
     "gulp-minify-css": "^1.2.1",
     "gulp-notify": "^2.1.0",
     "gulp-rename": "^1.2.0",
