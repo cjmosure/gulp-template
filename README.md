@@ -1,6 +1,8 @@
 Gulp Template
 =============
 
+[![Build Status](https://travis-ci.org/cjmosure/gulp-template.svg?branch=master)](https://travis-ci.org/cjmosure/gulp-template)
+
 A Gulp template to:
 
 1. Watch & compile SASS
