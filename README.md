@@ -15,7 +15,8 @@ A Gulp template to:
 2. Clone this repo: `git clone https://github.com/cjmosure/gulp-template.git`
 3. Run `npm install` or `sudo npm install` if it barks errors at you
 4. Run `bower install` to get dependencies (jquery, angular, bootstrap - see the bower.json file) 
-5. Run `gulp` to run the gulp tasks or run `gulp watch` to watch for SASS changes and compile automatically (control+C to stop watching)
+5. Run `gulp` to run the gulp tasks
+6. Run `gulp watch` to watch for SASS changes and compile automatically (control+C to stop watching)
 
 ### Compiled Assets
 
