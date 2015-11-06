@@ -27,9 +27,6 @@
     "gulp-plumber": "^1.0.1",
     "gulp-filter": "^3.0.1"
   },
-  "scripts": {
-    //"test": "gulp test"
-  },
   "engines": {
     "node": ">= 0.12.0",
     "npm": ">=2.1.5"
