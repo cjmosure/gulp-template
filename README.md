@@ -26,3 +26,15 @@ By default, all styles compile to `dist/app.css` and all javascript to `dist/mai
 ### Bootstrap & Variables
 
 See the `assets/sass/_bootstrap.scss` file - that includes all of the bootstrap sass components  (you may choose to comment out ones you aren't using for a small performance increase). The `assets/sass/_variables.scss` file declares any Bootstrap variables so you can make your own customizations directly out of the box.
+
+### Roadmap
+
+- [x] BrowserSync
+- [ ] asset builder for scripts
+- [ ] lazypipe for css and script tasks
+- [ ] add banners to minified files
+- [ ] asset builder for sass + bootstrap
+- [ ] compress images and add to dist
+- [ ] karma tests for scripts
+- [ ] gulp server
+- [ ] github page
