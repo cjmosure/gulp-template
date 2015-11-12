@@ -11,25 +11,23 @@ var notify = require('gulp-notify');
 var del = require('del');
 var gulpFilter = require('gulp-filter');
 
-var jsFiles = [
-  'assets/vendor/jquery/dist/jquery.js',
-  'assets/vendor/angular/angular.js',
-  'assets/vendor/bootstrap-sass/assets/javascripts/bootstrap.js'
-];
+// Asset Builder
+var manifest = require('asset-builder')('./assets/manifest.json');
+var app = manifest.getDependencyByName('main.js');
 
 gulp.task('clean', function(cb) {
   del(['dist'], cb);
 });
 
 gulp.task('scripts', function() {
-  return gulp.src(jsFiles)
-    .pipe(concat('main.js'))
-    .pipe(gulp.dest('dist'));
+  return gulp.src(app.globs)
+    .pipe(concat(app.name))
+    .pipe(gulp.dest(manifest.paths.dist));
 });
 
 gulp.task('styles', function() {
   var filter = gulpFilter(['*.css', '!*.map']);
-  return gulp.src('assets/sass/app.scss')
+  return gulp.src('assets/sass/main.scss')
     .pipe(plumber())
   	.pipe(sourcemaps.init())
       .pipe(sass({ style: 'expanded' }))

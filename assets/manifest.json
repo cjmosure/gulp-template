@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "main.js": {
+      "files": [
+        "scripts/main.js",
+        "scripts/app.js"
+      ],
+      "main": true
+    }
+  },
+  "paths": {
+    "source": "assets/",
+    "dist": "dist/"
+  }
+}

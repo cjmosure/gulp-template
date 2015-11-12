@@ -40476,3 +40476,6 @@ if (typeof jQuery === 'undefined') {
   })
 
 }(jQuery);
+
+
+var app = angular.module("gulpTemplate", []);
