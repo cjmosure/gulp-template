@@ -1,27 +1,30 @@
-var gulp = require('gulp');
-var plumber = require('gulp-plumber');
-var sass = require('gulp-sass');
-var sourcemaps = require('gulp-sourcemaps');
+var gulp         = require('gulp');
+var plumber      = require('gulp-plumber');
+var sass         = require('gulp-sass');
+var sourcemaps   = require('gulp-sourcemaps');
 var autoprefixer = require('gulp-autoprefixer');
-var minifyCss = require('gulp-minify-css');
-var concatCss = require('gulp-concat-css');
-var concat = require('gulp-concat');
-var rename = require('gulp-rename');
-var notify = require('gulp-notify');
-var del = require('del');
-var gulpFilter = require('gulp-filter');
+var minifyCss    = require('gulp-minify-css');
+var concatCss    = require('gulp-concat-css');
+var concat       = require('gulp-concat');
+var rename       = require('gulp-rename');
+var notify       = require('gulp-notify');
+var del          = require('del');
+var gulpFilter   = require('gulp-filter');
+var uglify       = require('gulp-uglify');
 
 // Asset Builder
 var manifest = require('asset-builder')('./assets/manifest.json');
 var app = manifest.getDependencyByName('main.js');
 
+// Clean - removes dist folder
 gulp.task('clean', function(cb) {
-  del(['dist'], cb);
+  del([manifest.paths.dist], cb);
 });
 
 gulp.task('scripts', function() {
   return gulp.src(app.globs)
     .pipe(concat(app.name))
+    .pipe(uglify())
     .pipe(gulp.dest(manifest.paths.dist));
 });
 
