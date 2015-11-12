@@ -11,5 +11,8 @@
   "paths": {
     "source": "assets/",
     "dist": "dist/"
+  },
+  "config": {
+    "devUrl": "http://build/gulp-template"
   }
 }

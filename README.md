@@ -16,7 +16,8 @@ A Gulp template to:
 3. Run `npm install` or `sudo npm install` if it barks errors at you
 4. Run `bower install` to get dependencies (jquery, angular, bootstrap - see the bower.json file) 
 5. Run `gulp` to run the gulp tasks
-6. Run `gulp watch` to watch for SASS changes and compile automatically (control+C to stop watching)
+6. Add your development url to the `./assets/manifest.json` devUrl to use BrowserSync 
+7. Run `gulp watch` to watch for SASS changes and compile automatically (control+C to stop watching)
 
 ### Compiled Assets
 

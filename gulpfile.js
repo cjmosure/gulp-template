@@ -1,15 +1,22 @@
+// Gulp Basics 
 var gulp         = require('gulp');
 var plumber      = require('gulp-plumber');
-var sass         = require('gulp-sass');
-var sourcemaps   = require('gulp-sourcemaps');
-var autoprefixer = require('gulp-autoprefixer');
-var minifyCss    = require('gulp-minify-css');
-var concatCss    = require('gulp-concat-css');
+var lazypipe     = require('lazypipe');
 var concat       = require('gulp-concat');
 var rename       = require('gulp-rename');
 var notify       = require('gulp-notify');
 var del          = require('del');
 var gulpFilter   = require('gulp-filter');
+var browserSync  = require('browser-sync').create();
+
+// CSS
+var sass         = require('gulp-sass');
+var sourcemaps   = require('gulp-sourcemaps');
+var autoprefixer = require('gulp-autoprefixer');
+var minifyCss    = require('gulp-minify-css');
+var concatCss    = require('gulp-concat-css');
+
+// Javascript
 var uglify       = require('gulp-uglify');
 
 // Asset Builder
@@ -42,6 +49,10 @@ gulp.task('styles', function() {
 });
 
 gulp.task('watch', function() {
+  browserSync.init({
+    files: ['dist/*'],
+    proxy: manifest.config.devUrl
+  });
   gulp.watch('assets/sass/**', ['styles']);
 });
 
