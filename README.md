@@ -1,8 +1,7 @@
 Gulp Template
 =============
 
-[![Build Status](https://travis-ci.org/cjmosure/gulp-template.svg?branch=master)](https://travis-ci.org/cjmosure/gulp-template)
-![Node.js Dependencies](https://david-dm.org/cjmosure/gulp-template.svg)
+[![Build Status](https://travis-ci.org/cjmosure/gulp-template.svg?branch=master)](https://travis-ci.org/cjmosure/gulp-template) [![Node.js Dependencies](https://david-dm.org/cjmosure/gulp-template.svg)](https://david-dm.org/cjmosure/gulp-template)
 
 
 A Gulp template to:
