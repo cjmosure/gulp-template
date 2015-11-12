@@ -2,12 +2,14 @@ Gulp Template
 =============
 
 [![Build Status](https://travis-ci.org/cjmosure/gulp-template.svg?branch=master)](https://travis-ci.org/cjmosure/gulp-template)
+![Node.js Dependencies](https://david-dm.org/cjmosure/gulp-template.svg)
+
 
 A Gulp template to:
 
 1. Watch & compile SASS
 2. Customizable Bootstrap-SASS
-3. jQuery, Angular, Bootstrap JS included and concatenated
+3. jQuery, Angular, Bootstrap JS included, concated and minified
 
 ### Setup
 
@@ -21,7 +23,7 @@ A Gulp template to:
 
 ### Compiled Assets
 
-By default, all styles compile to `dist/app.css` and all javascript to `dist/main.js`. Additionally the `app/app.js` file is your Angular app.
+By default, all styles compile to `dist/main.css` and all javascript to `dist/main.js`.
 
 ### Bootstrap & Variables
 
