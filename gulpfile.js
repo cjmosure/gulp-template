@@ -5,9 +5,10 @@ var lazypipe     = require('lazypipe');
 var concat       = require('gulp-concat');
 var rename       = require('gulp-rename');
 var notify       = require('gulp-notify');
-var del          = require('del');
+//var del          = require('del');
 var gulpFilter   = require('gulp-filter');
 var browserSync  = require('browser-sync').create();
+var runSequence  = require('run-sequence');
 
 // CSS
 var sass         = require('gulp-sass');
@@ -22,11 +23,47 @@ var uglify       = require('gulp-uglify');
 // Asset Builder
 var manifest = require('asset-builder')('./assets/manifest.json');
 var app = manifest.getDependencyByName('main.js');
+var project = manifest.getProjectGlobs();
 
 // Clean - removes dist folder
 gulp.task('clean', function(cb) {
   del([manifest.paths.dist], cb);
 });
+
+// Wiredep - inject bower dependencies
+gulp.task('wiredep', function() {
+  var wiredep = require('wiredep').stream;
+  return gulp.src('assets/sass/main.scss')
+  //return gulp.src(project.css) can't get variable to work for some weird reason :|
+    .pipe(wiredep())
+    .pipe(gulp.dest(manifest.paths.source + 'sass'));
+});
+
+// CSS processing pipeline
+/*
+var cssTasks = lazypipe()
+  .pipe(plumber)
+  .pipe(sourcemaps.init())
+    .pipe(sass,{ style: 'expanded' })
+    .pipe(autoprefixer, {
+      browsers: [
+        'last 2 versions',
+        'ie 8',
+        'ie 9',
+        'android 2.3',
+        'android 4',
+        'opera 12'
+      ]
+    })
+    .pipe(minifyCss, {
+      advanced: false,
+      rebase: false
+    })
+  .pipe(sourcemaps.write())
+  .pipe(gulp.dest('dist'))
+  .pipe(notify, {message: 'Styles Ready...'});
+
+*/
 
 gulp.task('scripts', function() {
   return gulp.src(app.globs)
@@ -35,7 +72,7 @@ gulp.task('scripts', function() {
     .pipe(gulp.dest(manifest.paths.dist));
 });
 
-gulp.task('styles', function() {
+gulp.task('styles', ['wiredep'], function() {
   var filter = gulpFilter(['*.css', '!*.map']);
   return gulp.src('assets/sass/main.scss')
     .pipe(plumber())
@@ -56,7 +93,15 @@ gulp.task('watch', function() {
   gulp.watch('assets/sass/**', ['styles']);
 });
 
-gulp.task('default', ['styles', 'scripts']);
+gulp.task('build', function(callback) {
+  runSequence('styles','scripts',callback);
+});
+
+gulp.task('default',['clean'], function() {
+  gulp.start('build');
+});
+
+gulp.task('clean', require('del').bind(null, [manifest.paths.dist]));
 
 function errorHandler (error) {
   console.log(error.toString());

@@ -31,10 +31,11 @@ See the `assets/sass/_bootstrap.scss` file - that includes all of the bootstrap 
 ### Roadmap
 
 - [x] BrowserSync
-- [ ] asset builder for scripts
+- [x] asset builder for scripts
+- [x] asset builder for sass + bootstrap
+- [x] wiredep bower packages
 - [ ] lazypipe for css and script tasks
 - [ ] add banners to minified files
-- [ ] asset builder for sass + bootstrap
 - [ ] compress images and add to dist
 - [ ] karma tests for scripts
 - [ ] gulp server

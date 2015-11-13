@@ -16,7 +16,7 @@ $brand-danger:          #d9534f;
    ========================================================================== */
 
 $body-bg:               #ffffff;
-$text-color:            $gray-dark;
+$text-color:            #404040;
 $link-color:            $brand-primary;
 $link-hover-color:      darken($link-color, 15%);
 $link-hover-decoration: underline;
@@ -30,7 +30,7 @@ $border-radius-small:       3px;
    ========================================================================== */
 
 $font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif;
-$font-size-base:          14px;
+$font-size-base:          16px;
 
 $font-size-h1:            floor(($font-size-base * 2.6)); // ~36px
 $font-size-h2:            floor(($font-size-base * 2.15)); // ~30px
