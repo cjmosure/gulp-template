@@ -37,7 +37,8 @@ See the `assets/sass/_bootstrap.scss` file - that includes all of the bootstrap 
 - [x] lazypipes for css and script tasks
 - [x] lazypipes for js tasks
 - [x] variable declaration for styles files and paths
-- [ ] add banners to minified files
+- [x] add banners to minified files
+- [x] separate main.css (with source maps), main.min.css 
 - [ ] compress images and add to dist
 - [ ] karma tests for scripts
 - [ ] gulp server

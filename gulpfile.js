@@ -29,7 +29,6 @@ var package = require('./package.json');
 /**
  * Template for banner to add to file headers
  */
-
 var banner = {
     full :
         '/*!\n' +
