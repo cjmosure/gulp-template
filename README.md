@@ -34,7 +34,9 @@ See the `assets/sass/_bootstrap.scss` file - that includes all of the bootstrap 
 - [x] asset builder for scripts
 - [x] asset builder for sass + bootstrap
 - [x] wiredep bower packages
-- [ ] lazypipe for css and script tasks
+- [x] lazypipes for css and script tasks
+- [x] lazypipes for js tasks
+- [x] variable declaration for styles files and paths
 - [ ] add banners to minified files
 - [ ] compress images and add to dist
 - [ ] karma tests for scripts
