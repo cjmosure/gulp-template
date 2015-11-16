@@ -12,8 +12,8 @@
 		<div class="row">
 			<div class="col-sm-6 col-sm-offset-3">
 				<h1>Gulp Template</h1>
-				<p class="lead">A gulp starter kit for websites and web applications</p>
-				<code>git@github.com:cjmosure/gulp-template.git</code>
+				<p class="lead">Modern web development workflow with Bootstrap, SASS, bower and production builds.</p>
+				<pre><code>git@github.com:cjmosure/gulp-template.git</code></pre>
 			</div>
 		</div>
 	</div>
@@ -23,8 +23,78 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-sm-6 col-sm-offset-3">
-			<h3>Better Front End Development</h3>
-			<p>This is a front-end development framework that uses gulp.</p>
+			<h3>Better Front-End Development</h3>
+			<p>This project was created to help easily scaffold new web development projects using modern tools like Bower, Boostrap, SASS and more...</p>
+
+			<div class="alert alert-warning" role="alert">
+	      <strong>Warning!</strong><br /> These instructions are for OSx or Linux distros. Windows may come soon...
+	    </div>
+
+			<h3>Dependencies</h3>
+			You must have node.js installed (<a target="_Blank" href="http://nodejs.org">download here</a>). It's recommended that you install <a target="_Blank" href="http://gulpjs.com/">Gulp</a> and <a target="_Blank" href="http://bower.io/">Bower</a> globally on your development machine, but not required.
+
+			<h3>Clone this Repo</h3>
+			<p>First step is to clone this repo:</p>
+			<pre><code>git clone https://github.com/cjmosure/gulp-template.git</code></pre>
+
+			<p>If you're working on your own project, it may be a good idea to remove the git information from this repo after you clone, below is a command for that, where "yourprojectname" is the name of the folder you want your project to be under:</p>
+
+			<pre><code>mkdir yourprojectname && git clone https://github.com/cjmosure/gulp-template.git . && cd yourprojectname && rm -rf .git</code></pre>
+
+			<h3>Initial Set Up</h3>
+
+			<p>Once you have cloned the github repo, you will want to install the node.js dependencies to start using gulp. All packages are listed in the package.json file at the root, install them with:</p>
+
+			<pre><code>npm install</code></pre> 
+
+			<p>or if you get errors run this and type your password: </p>
+
+			<pre><code>sudo npm install</code></pre>
+
+			<h3>Using Gulp</h3>
+
+			<p>See the gulpfile.js for the tasks and a better idea of what's going on:</p>
+
+			<ul>
+				<li><strong>clean</strong> - completely removes the dist folder for a clean build</li>
+				<li><strong>wiredep</strong> - gets sass / css bower dependencies automatically and puts into the main.scss file</li>
+				<li><strong>styles</strong> - compiles main sass file, default of main.scss in assets/sass/. See the "cssTasks" lazypipe for the build process, includes sourcemaps, auto browser prefixing, minification and more.</li>
+				<li><strong>scripts</strong> - compiles the javascript files and dependencies (the asset builder package automatically globs bower javascript dependencies but can be overridden via the assets/manifest.json file). See the "jsTasks" lazypipe for the build process, includes concat, uglify and more.</li>
+				<li><strong>watch</strong> - watches for sass or javascript changes and compiles via the respective tasks above. Also includes browsersync for autorefreshing when styles, scripts or html changes.</li>
+				<li><strong>build</strong> - runs tasks in a preset sequence.</li>
+			</ul>
+
+			<p>To run all of the tasks manually:</p>
+
+			<pre><code>gulp</code></pre>
+
+			<p>To run a singular task manually, gulp followed by the task name:</p>
+
+			<pre><code>gulp styles</code></pre>
+
+			<p>To watch for changes and compile on the fly:</p>
+
+			<pre><code>gulp watch</code></pre>
+
+
+			<h3>Additional Configuration / Customization</h3>
+
+			<p>Coming soon...</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 		</div>
 	</div>
 </div>
