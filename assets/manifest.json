@@ -19,6 +19,6 @@
     "dist": "dist/"
   },
   "config": {
-    "devUrl": "http://build/gulp-template"
+    "devUrl": "http://local.dev/gulp-template"
   }
 }

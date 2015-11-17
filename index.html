@@ -4,6 +4,7 @@
 	<title>Gulp Template</title>
 	<link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="dist/main.min.css">
+	<link rel="icon" href="favicon.png">
 </head>
 <body ng-app="gulpTemplate">
 
@@ -23,17 +24,22 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-sm-6 col-sm-offset-3">
-			<h3>Better Front-End Development</h3>
+			<h3 id="better">Better Front-End Development</h3>
 			<p>This project was created to help easily scaffold new web development projects using modern tools like Bower, Boostrap, SASS and more...</p>
 
 			<div class="alert alert-warning" role="alert">
 	      <strong>Warning!</strong><br /> These instructions are for OSx or Linux distros. Windows may come soon...
 	    </div>
 
-			<h3>Dependencies</h3>
+	    <div class="well">
+	    	<h3>Navigation:</h3>
+		    <p><a href="#better">Better Front-End Development</a> &nbsp;&nbsp;|&nbsp;&nbsp; <a href="#dependencies">Dependencies</a> &nbsp;&nbsp;|&nbsp;&nbsp; <a href="#clone">Clone this Repo</a> &nbsp;&nbsp;|&nbsp;&nbsp; <a href="#initial-set-up">Initial Set Up</a> &nbsp;&nbsp;|&nbsp;&nbsp; <a href="#using-gulp">Using Gulp</a> &nbsp;&nbsp;|&nbsp;&nbsp; <a href="#configuration">Additional Configuration / Customization</a> &nbsp;&nbsp;|&nbsp;&nbsp; <a href="#browsersync">BrowserSync</a></p>
+	    </div>
+
+			<h3 id="dependencies">Dependencies</h3>
 			You must have node.js installed (<a target="_Blank" href="http://nodejs.org">download here</a>). It's recommended that you install <a target="_Blank" href="http://gulpjs.com/">Gulp</a> and <a target="_Blank" href="http://bower.io/">Bower</a> globally on your development machine, but not required.
 
-			<h3>Clone this Repo</h3>
+			<h3 id="clone">Clone this Repo</h3>
 			<p>First step is to clone this repo:</p>
 			<pre><code>git clone https://github.com/cjmosure/gulp-template.git</code></pre>
 
@@ -41,7 +47,7 @@
 
 			<pre><code>mkdir yourprojectname && git clone https://github.com/cjmosure/gulp-template.git . && cd yourprojectname && rm -rf .git</code></pre>
 
-			<h3>Initial Set Up</h3>
+			<h3 id="initial-set-up">Initial Set Up</h3>
 
 			<p>Once you have cloned the github repo, you will want to install the node.js dependencies to start using gulp. All packages are listed in the package.json file at the root, install them with:</p>
 
@@ -51,7 +57,7 @@
 
 			<pre><code>sudo npm install</code></pre>
 
-			<h3>Using Gulp</h3>
+			<h3 id="using-gulp">Using Gulp</h3>
 
 			<p>See the gulpfile.js for the tasks and a better idea of what's going on:</p>
 
@@ -76,10 +82,9 @@
 
 			<pre><code>gulp watch</code></pre>
 
-			<h3>Additional Configuration / Customization</h3>
+			<h3 id="configuration">Additional Configuration / Customization</h3>
 
-
-			<h4>BrowserSync (Live Reload)</h4>
+			<h4 id="browsersync">BrowserSync (Live Reload)</h4>
 
 			<p>Enter your local development url in the config->devUrl option in the "./assets/manifest.json" file to enable live reloading through the browsersync gulp plugin. Live reload reloads on any changes to the dist/* files or any .html files within the folder. Your browser will open localhost:3000 automatically when you run:</p>
 
