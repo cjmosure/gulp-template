@@ -3,6 +3,8 @@ Gulp Template
 
 [![Build Status](https://travis-ci.org/cjmosure/gulp-template.svg?branch=master)](https://travis-ci.org/cjmosure/gulp-template) [![devDependency Status](https://david-dm.org/cjmosure/gulp-template/dev-status.svg)](https://david-dm.org/cjmosure/gulp-template#info=devDependencies)
 
+For examples and more information, see the github page at [cjmosure.github.io/gulp-template](http://cjmosure.github.io/gulp-template/).
+
 
 A Gulp template to:
 
@@ -42,4 +44,4 @@ See the `assets/sass/_bootstrap.scss` file - that includes all of the bootstrap 
 - [ ] compress images and add to dist
 - [ ] karma tests for scripts
 - [ ] gulp server
-- [ ] github page
+- [x] github page
