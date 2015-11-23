@@ -72,8 +72,7 @@ var cssTasks = lazypipe()
     rebase: false
   })
   .pipe(header, banner.min, { package : package })
-  .pipe(gulp.dest, 'dist')
-  .pipe(notify, {message: 'Styles Ready...'});
+  .pipe(gulp.dest, 'dist');
 
 /**
  * Javascript processing pipeline

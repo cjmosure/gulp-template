@@ -2,8 +2,7 @@
   "dependencies": {
     "main.js": {
       "files": [
-        "scripts/main.js",
-        "scripts/app.js"
+        "scripts/main.js"
       ],
       "main": true
     },
@@ -19,6 +18,6 @@
     "dist": "dist/"
   },
   "config": {
-    "devUrl": "http://build/gulp-template"
+    "devUrl": "http://local.dev/gulp-template"
   }
 }
