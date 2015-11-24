@@ -10,6 +10,7 @@ var gulpFilter   = require('gulp-filter');
 var browserSync  = require('browser-sync').create();
 var runSequence  = require('run-sequence');
 var changed      = require('gulp-changed');
+var expect       = require('gulp-expect-file');
 
 // CSS
 var sass         = require('gulp-sass');
@@ -66,13 +67,15 @@ var cssTasks = lazypipe()
   .pipe(sourcemaps.write)
   .pipe(header, banner.full, { package : package })
   .pipe(gulp.dest, 'dist')
+  .pipe(expect,'dist/main.css')
   .pipe(rename, {suffix: '.min'})
   .pipe(minifyCss, {
     advanced: false,
     rebase: false
   })
   .pipe(header, banner.min, { package : package })
-  .pipe(gulp.dest, 'dist');
+  .pipe(gulp.dest, 'dist')
+  .pipe(expect,'dist/main.min.css');
 
 /**
  * Javascript processing pipeline
@@ -82,10 +85,12 @@ var jsTasks = lazypipe()
   .pipe(concat, javascripts.name)
   .pipe(header, banner.full, { package : package })
   .pipe(gulp.dest, manifest.paths.dist)
+  .pipe(expect,'dist/main.js')
   .pipe(rename, { suffix: '.min' })
   .pipe(uglify)
   .pipe(header, banner.min, { package : package })
-  .pipe(gulp.dest, manifest.paths.dist);
+  .pipe(gulp.dest, manifest.paths.dist)
+  .pipe(expect,'dist/main.min.js');
 
 /**
  * Clean - removes the dist folder
@@ -105,6 +110,21 @@ gulp.task('wiredep', function() {
     }))
     .pipe(gulp.dest(manifest.paths.source + 'sass'));
 });
+
+/**
+ * Testing
+ *
+gulp.task('test', function() {
+  var files = [
+    'dist/main.css',
+    'dist/main.min.css',
+    'dist/main.js',
+    'dist/main.min.js'
+  ];
+  return gulp.src(files)
+    .pipe(expect(files));
+});
+*/
 
 /**
  * Process styles
@@ -136,13 +156,17 @@ gulp.task('watch', function() {
  * Build everything
  */
 gulp.task('build', function(callback) {
-  runSequence('styles','scripts',callback);
+  runSequence(
+    'clean',
+    ['styles','scripts'],
+    callback
+  );
 });
 
 /**
  * "Gulp" task
  */
-gulp.task('default',['clean'], function() {
+gulp.task('default', function() {
   gulp.start('build');
 });
 
