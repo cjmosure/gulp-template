@@ -5,6 +5,7 @@ var lazypipe     = require('lazypipe');
 var concat       = require('gulp-concat');
 var rename       = require('gulp-rename');
 var notify       = require('gulp-notify');
+//var merge        = require('merge-stream');
 var header       = require('gulp-header');
 var gulpFilter   = require('gulp-filter');
 var browserSync  = require('browser-sync').create();
@@ -25,6 +26,7 @@ var uglify       = require('gulp-uglify');
 // Variables & Asset Builder
 var manifest = require('asset-builder')('./assets/manifest.json');
 var javascripts = manifest.getDependencyByName('main.js');
+var styles = manifest.getDependencyByName('main.css');
 var package = require('./package.json');
 
 /**
@@ -112,26 +114,13 @@ gulp.task('wiredep', function() {
 });
 
 /**
- * Testing
- *
-gulp.task('test', function() {
-  var files = [
-    'dist/main.css',
-    'dist/main.min.css',
-    'dist/main.js',
-    'dist/main.min.js'
-  ];
-  return gulp.src(files)
-    .pipe(expect(files));
-});
-*/
-
-/**
  * Process styles
  */
+
 gulp.task('styles',['wiredep'], function() {
     gulp.src('assets/sass/main.scss').pipe(cssTasks());
 });
+
 
 /**
  * Process javascript
@@ -145,7 +134,7 @@ gulp.task('scripts', function() {
  */
 gulp.task('watch', function() {
   browserSync.init({
-    files: ['dist/*','*.html'],
+    files: ['dist/*','*.html','*.php'],
     proxy: manifest.config.devUrl
   });
   gulp.watch('assets/sass/**', ['styles']);
