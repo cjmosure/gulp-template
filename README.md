@@ -3,7 +3,7 @@ Gulp Template
 
 [![Build Status](https://travis-ci.org/cjmosure/gulp-template.svg?branch=master)](https://travis-ci.org/cjmosure/gulp-template) [![devDependency Status](https://david-dm.org/cjmosure/gulp-template/dev-status.svg)](https://david-dm.org/cjmosure/gulp-template#info=devDependencies)
 
-For examples and more information, see the github page at [cjmosure.github.io/gulp-template](http://cjmosure.github.io/gulp-template/).
+For examples and more information, see the github page at [cjmosure.github.io/gulp-template](http://cjmosure.github.io/gulp-template/). There is also a react.js version of this as a branch: [github.com/cjmosure/gulp-template/tree/react](https://github.com/cjmosure/gulp-template/tree/react).
 
 
 A Gulp template to:
