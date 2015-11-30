@@ -5,13 +5,16 @@ var lazypipe     = require('lazypipe');
 var concat       = require('gulp-concat');
 var rename       = require('gulp-rename');
 var notify       = require('gulp-notify');
-//var merge        = require('merge-stream');
+//var merge      = require('merge-stream');
 var header       = require('gulp-header');
 var gulpFilter   = require('gulp-filter');
 var browserSync  = require('browser-sync').create();
 var runSequence  = require('run-sequence');
 var changed      = require('gulp-changed');
 var expect       = require('gulp-expect-file');
+
+// React
+var babel        = require('gulp-babel');
 
 // CSS
 var sass         = require('gulp-sass');
@@ -24,10 +27,10 @@ var concatCss    = require('gulp-concat-css');
 var uglify       = require('gulp-uglify');
 
 // Variables & Asset Builder
-var manifest = require('asset-builder')('./assets/manifest.json');
-var javascripts = manifest.getDependencyByName('main.js');
-var styles = manifest.getDependencyByName('main.css');
-var package = require('./package.json');
+var manifest     = require('asset-builder')('./assets/manifest.json');
+var javascripts  = manifest.getDependencyByName('main.js');
+var styles       = manifest.getDependencyByName('main.css');
+var package      = require('./package.json');
 
 /**
  * Template for banner to add to file headers
@@ -130,6 +133,18 @@ gulp.task('scripts', function() {
 });
 
 /**
+ * React JSX Transfrom
+ */
+
+gulp.task('react', () => {
+  return gulp.src('assets/scripts/app.js')
+    .pipe(babel({
+      presets: ['react']
+    }))
+    .pipe(gulp.dest('dist'));
+});
+
+/**
  * Watch for changes and compile
  */
 gulp.task('watch', function() {
@@ -138,7 +153,8 @@ gulp.task('watch', function() {
     proxy: manifest.config.devUrl
   });
   gulp.watch('assets/sass/**', ['styles']);
-  gulp.watch('assets/scripts/**', ['scripts']);
+  gulp.watch('assets/scripts/main.js', ['scripts']);
+  gulp.watch('assets/scripts/app.js', ['react']);
 });
 
 /**
@@ -147,7 +163,7 @@ gulp.task('watch', function() {
 gulp.task('build', function(callback) {
   runSequence(
     'clean',
-    ['styles','scripts'],
+    ['styles','scripts', 'react'],
     callback
   );
 });
