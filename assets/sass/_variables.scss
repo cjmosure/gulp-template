@@ -1,43 +1,47 @@
-// For all variables, see assets/vendor/boostrap-sass/assets/stylesheets/bootstrap/_variables.scss
+// For all variables, see bower_components/bootstrap/scss/_variables.scss
 
 /* ==========================================================================
    Brand Colors
    ========================================================================== */
 
-$brand-primary:         darken(#428bca, 6.5%); // #337ab7
-$brand-success:         #5cb85c;
-$brand-info:            #5bc0de;
-$brand-warning:         #f0ad4e;
-$brand-danger:          #d9534f;
+$gray-dark:                 #373a3c;
+$gray:                      #55595c;
+$gray-light:                #818a91;
+$gray-lighter:              #eceeef;
+$gray-lightest:             #f7f7f9;
+
+$brand-primary:             #0275d8;
+$brand-success:             #5cb85c;
+$brand-info:                #5bc0de;
+$brand-warning:             #f0ad4e;
+$brand-danger:              #d9534f;
 
 
 /* ==========================================================================
    Globals
    ========================================================================== */
 
-$body-bg:               #fff;
-$text-color:            #404040;
-$link-color:            $brand-primary;
-$link-hover-color:      darken($link-color, 15%);
-$link-hover-decoration: underline;
-$border-radius-base:        4px;
-$border-radius-large:       6px;
-$border-radius-small:       3px;
+$body-bg:                    #fff;
+$body-color:                 $gray-dark;
+$enable-flex:                false;
+$enable-rounded:             true;
+
 
 
 /* ==========================================================================
    Typography
    ========================================================================== */
 
-$font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif;
-$font-size-base:          16px;
+$font-family-sans-serif:     "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-size-root:             16px;
+$link-color:                 $brand-primary;
+$link-hover-color:           darken($link-color, 15%);
+$link-hover-decoration:      underline;
 
-$font-size-h1:            floor(($font-size-base * 2.6)); // ~36px
-$font-size-h2:            floor(($font-size-base * 2.15)); // ~30px
-$font-size-h3:            ceil(($font-size-base * 1.7)); // ~24px
-$font-size-h4:            ceil(($font-size-base * 1.25)); // ~18px
-$font-size-h5:            $font-size-base;
-$font-size-h6:            ceil(($font-size-base * 0.85)); // ~12px
-
-
-
+//Headers
+$font-size-h1:               2.5rem;
+$font-size-h2:               2rem;
+$font-size-h3:               1.75rem;
+$font-size-h4:               1.5rem;
+$font-size-h5:               1.25rem;
+$font-size-h6:               1rem;

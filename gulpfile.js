@@ -13,8 +13,6 @@ var runSequence = require('run-sequence');
 var changed     = require('gulp-changed');
 var expect      = require('gulp-expect-file');
 var webserver   = require('gulp-webserver');
- 
-
 
 // CSS
 var sass         = require('gulp-sass');
@@ -147,7 +145,7 @@ gulp.task('watch', function() {
 /**
  * Web Server
  */
-gulp.task('webserver', function() {
+gulp.task('serve', function() {
   gulp.src('./')
     .pipe(webserver({
       livereload: {
