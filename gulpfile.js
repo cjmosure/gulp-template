@@ -1,17 +1,20 @@
 // Gulp Basics 
-var gulp         = require('gulp');
-var plumber      = require('gulp-plumber');
-var lazypipe     = require('lazypipe');
-var concat       = require('gulp-concat');
-var rename       = require('gulp-rename');
-var notify       = require('gulp-notify');
+var gulp        = require('gulp');
+var plumber     = require('gulp-plumber');
+var lazypipe    = require('lazypipe');
+var concat      = require('gulp-concat');
+var rename      = require('gulp-rename');
+var notify      = require('gulp-notify');
 //var merge        = require('merge-stream');
-var header       = require('gulp-header');
-var gulpFilter   = require('gulp-filter');
-var browserSync  = require('browser-sync').create();
-var runSequence  = require('run-sequence');
-var changed      = require('gulp-changed');
-var expect       = require('gulp-expect-file');
+var header      = require('gulp-header');
+var gulpFilter  = require('gulp-filter');
+var browserSync = require('browser-sync').create();
+var runSequence = require('run-sequence');
+var changed     = require('gulp-changed');
+var expect      = require('gulp-expect-file');
+var webserver   = require('gulp-webserver');
+ 
+
 
 // CSS
 var sass         = require('gulp-sass');
@@ -139,6 +142,23 @@ gulp.task('watch', function() {
   });
   gulp.watch('assets/sass/**', ['styles']);
   gulp.watch('assets/scripts/**', ['scripts']);
+});
+
+/**
+ * Web Server
+ */
+gulp.task('webserver', function() {
+  gulp.src('./')
+    .pipe(webserver({
+      livereload: {
+        enable: true
+      },
+      directoryListing: true,
+      fallback: 'index.html',
+      open: true
+    }));
+    gulp.watch('assets/sass/**', ['styles']);
+    gulp.watch('assets/scripts/**', ['scripts']);
 });
 
 /**
